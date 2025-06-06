@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "br.com.loja.grpc";
+option java_outer_classname = "ValidaPedidoProto";
+
+service ValidaPedidoService {
+  rpc retornaTrueSeExiste (ValidaPedidoRequest) returns (ValidaPedidoResponse);
+}
+
+message ValidaPedidoRequest {
+  int64 id = 1;
+}
+
+message ValidaPedidoResponse {
+  bool success = 1;
+}
