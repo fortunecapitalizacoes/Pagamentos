@@ -42,3 +42,61 @@ Este sistema representa uma arquitetura simplificada para um processo de pagamen
 - Arquitetura baseada em microserviços
 ---
 
+## 🚀 Como subir o projeto localmente
+
+### Pré-requisitos
+
+- Docker + Docker Compose instalados
+- Java 17+ instalado
+
+### Passo 1 – Clonar o repositório
+
+```bash
+git clone https://github.com/fortunecapitalizacoes/Pagamentos.git
+cd Pagamentos
+```
+
+### Passo 2 – Subir a infraestrutura
+
+O projeto já contém um arquivo `docker-compose.yml` na raiz, com toda a infraestrutura necessária (RabbitMQ, PostgreSQL, etc). Basta executar:
+
+```bash
+docker-compose up -d
+```
+
+Aguarde alguns segundos até que os contêineres estejam completamente iniciados.
+
+### Passo 3 – Rodar a aplicação Spring Boot
+
+Com os contêineres rodando, inicie o projeto Spring Boot:
+
+```bash
+./mvnw spring-boot:run
+```
+
+Ou, se estiver usando o Maven instalado:
+
+```bash
+mvn spring-boot:run
+```
+
+> O projeto será iniciado na porta padrão (geralmente `8081`, verifique em `application.yml`).
+
+---
+
+## 🔗 Dependência externa: Módulo de Pedidos
+
+O serviço de pagamentos **depende do serviço de pedidos** para validar se o pagamento está sendo feito para um pedido existente.
+
+### Como baixar e iniciar o módulo de pedidos:
+
+```bash
+git clone https://github.com/fortunecapitalizacoes/Pedidos.git
+cd Pedidos
+docker-compose up -d  # se o projeto também tiver infraestrutura via docker-compose
+mvn spring-boot:run   # ou ./mvnw spring-boot:run
+```
+
+Certifique-se de que o módulo de pedidos esteja ativo **antes de realizar requisições de pagamento**.
+
+
