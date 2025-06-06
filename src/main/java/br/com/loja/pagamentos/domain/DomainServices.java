@@ -1,5 +1,6 @@
 package br.com.loja.pagamentos.domain;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -53,5 +54,9 @@ public class DomainServices {
         log.info("Pagamento registrado com sucesso no banco de dados para o pedido ID: {}", pagamentoDTO.getIdPedido());
 
         log.info("Mensagem de pagamento enviado com sucesso para a fila. Pedido ID: {}", pagamentoDTO.getIdPedido());
+    }
+    
+    public List<PagamentoEntity> listarPagamentos() {
+    	return pagamentoRepository.findAll();
     }
 }

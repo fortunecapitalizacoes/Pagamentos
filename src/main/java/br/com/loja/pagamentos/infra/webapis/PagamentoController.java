@@ -102,4 +102,9 @@ public class PagamentoController {
         return ResponseEntity.ok("Pagamento pendente registrado com sucesso para o pedido ID: " + dto.getIdPedido());
     }
     
+    @GetMapping
+    public ResponseEntity<?> listarPagamentos() {        
+        return ResponseEntity.ok(domainService.listarPagamentos());
+    }
+    
 }
