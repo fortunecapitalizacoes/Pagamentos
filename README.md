@@ -2,7 +2,16 @@
 
 Este sistema representa uma arquitetura simplificada para um processo de pagamento, onde um cliente interage com um microserviço responsável pelo processamento.
 
+![Diagrama da Arquitetura](https://raw.githubusercontent.com/fortunecapitalizacoes/Pagamentos/refs/heads/main/Pagamentos.jpg)
+
 ## Visão Geral
+
+### Protocolos Utilizados
+
+- **HTTP/HTTPS**: Comunicação síncrona entre serviços (ex: chamadas REST via API Gateway).
+- **AMQP**: Protocolo usado pelo RabbitMQ para comunicação assíncrona via filas de mensagens.
+- **TCP/IP**: Comunicação de baixo nível entre containers gerenciada pelo Docker.
+- **gRPC/HTTP2**: Protocolo de comunicação para chamadas de procedimentos remotos.
 
 ### 1. Cliente
 - **Tipo:** Pessoa ou Bot
@@ -31,10 +40,5 @@ Este sistema representa uma arquitetura simplificada para um processo de pagamen
 - Java
 - Spring Boot
 - Arquitetura baseada em microserviços
-
-## Observações
-Este diagrama é útil para representar uma arquitetura inicial de comunicação entre cliente e serviço de pagamentos em um sistema orientado a microsserviços.
-
 ---
 
-Desenvolvido com base em um modelo visual (draw.io / diagrams.net).
